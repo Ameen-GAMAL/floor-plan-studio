@@ -6,6 +6,63 @@ Constraint-based office floor plans with independently checked geometry.
 
 A private feasibility prototype for one question: can a user review a structured office brief, generate a usable dimensioned layout, change a requirement, and receive either newly checked geometry or an honest conflict explanation?
 
+## Windows quick start: target under 5 minutes
+
+Start here if you can already view this private repository on GitHub but have not downloaded its files. Use your browser to get the code; Git installation is not required.
+
+**Time estimate:** about 2–5 minutes with Python 3.12 already installed and a working internet connection. Installing Python or downloading dependencies on a slow connection can take longer.
+
+### 1. Download and extract the project
+
+1. At the top of this repository's **Code** page, click the green **Code** button, then **Download ZIP**. You can also [download the main branch ZIP directly](https://github.com/Ameen-GAMAL/floor-plan-studio/archive/refs/heads/main.zip).
+2. In your Windows **Downloads** folder, right-click the ZIP and choose **Extract All**, then **Extract**.
+3. Open the extracted folders until you see **run.py**, **requirements.txt** and the **app** folder together. This is the project folder. Run the demo from this extracted folder, not from inside the ZIP preview.
+
+### 2. Open PowerShell in the project folder
+
+In File Explorer, click the address bar of the folder containing **run.py**, type **powershell**, and press **Enter**.
+
+### 3. Install dependencies and start the server
+
+Run these commands **one line at a time**. The first command should print **Python 3.12.x**. If it fails, use the Python fix below before continuing.
+
+~~~powershell
+py -3.12 --version
+py -3.12 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe run.py
+~~~
+
+Wait for dependency installation to finish before starting the server. When PowerShell shows **Uvicorn running on http://127.0.0.1:8000**, leave that window open.
+
+### 4. Open the demo
+
+Open **[http://127.0.0.1:8000](http://127.0.0.1:8000)** in Edge or Chrome.
+
+Select **Small office**, continue through the three brief steps, then click **Generate floor plan**. Select a room to inspect its dimensions, and open **Room schedule** and **Validation report**.
+
+To try a live change, set the meeting-room minimum to **24 m²** and regenerate.
+
+### Next time
+
+Open PowerShell in the same extracted project folder and run only:
+
+~~~powershell
+.\.venv\Scripts\python.exe run.py
+~~~
+
+Open the same browser address. Stop the server with **Ctrl+C** when finished. Dependency installation needs internet access; the installed demo runs locally without a paid API, API key or runtime account.
+
+### Quick Windows fixes
+
+- **Python 3.12 is missing or py is not recognized:** install the **Windows installer (64-bit)** from the [official Python 3.12 download page](https://www.python.org/downloads/release/python-31210/), with the Python launcher included. Close and reopen PowerShell in the project folder, then repeat step 3.
+- **run.py or requirements.txt cannot be found:** open the inner extracted folder where both files are visible, then open PowerShell there.
+- **Port 8000 is already in use:** run the command below and open **[http://127.0.0.1:8001](http://127.0.0.1:8001)** instead.
+
+~~~powershell
+.\.venv\Scripts\python.exe run.py --port 8001
+~~~
+
 ![Dimensioned plan generated from the baseline office brief](outputs/baseline-plan.svg)
 
 Actual baseline output from the implemented solver and validator. Furniture is indicative; architectural and regulatory review remains unverified.
@@ -19,30 +76,6 @@ Actual baseline output from the implemented solver and validator. Furniture is i
 - Requirement changes with immediate stale-result rejection and real regeneration.
 - Distinct conflict, unresolved-search, unsupported-input and invalid-input outcomes.
 - Dimensioned SVG and JSON exports tied to the exact brief revision and digest.
-
-## Run locally
-
-Use Python 3.12. In PowerShell:
-
-~~~powershell
-git clone https://github.com/Ameen-GAMAL/floor-plan-studio.git
-cd floor-plan-studio
-python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe run.py
-~~~
-
-Open **http://127.0.0.1:8000**. Keep the server running during the demonstration. No activation script is necessary. Installation needs internet access; the installed application needs no internet connection, API key, account, or paid service.
-
-For macOS/Linux:
-
-~~~sh
-python3.12 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python run.py
-~~~
-
-On later starts, run only the final command. If port 8000 is occupied, add **--port 8001** and open that address. Stop the server with Ctrl+C.
 
 ## Present the prototype
 
@@ -144,5 +177,17 @@ Useful browser pages are **/guide**, **/plan** and **/validation**. There is no 
 - **Unsupported fixed geometry:** review coordinates; fixed elements are not moved automatically.
 - **Search budget reached:** retain the unresolved outcome; review requirements or explicitly retry.
 - **Stale/damaged export:** validate it against its exact brief and revision/hash.
+
+## Other platforms
+
+After downloading or cloning the project, open a terminal in the folder containing **run.py**. On macOS/Linux with Python 3.12:
+
+~~~sh
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python run.py
+~~~
+
+Open http://127.0.0.1:8000. On later starts, run only the final command.
 
 Primary tool documentation: [OR-Tools CP-SAT](https://developers.google.com/optimization/cp/cp_solver), [FastAPI](https://fastapi.tiangolo.com/), [Shapely](https://shapely.readthedocs.io/en/stable/manual.html), [NetworkX](https://networkx.org/documentation/stable/reference/algorithms/shortest_paths.html).
