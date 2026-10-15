@@ -1,0 +1,25 @@
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+work/
+*.py[cod]
+*.log
+*.zip
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Historical illustrative studies, not the implemented application.
+outputs/floor-plan-demo.html
+outputs/floor-plan-spec/

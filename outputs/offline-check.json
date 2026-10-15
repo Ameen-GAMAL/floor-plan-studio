@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "fresh_server": true,
+  "external_tcp_blocked_in_server": true,
+  "os_network_settings_changed": false,
+  "frontend_asset_audit": "All scripts, stylesheet and favicon are local/data assets; no CDN or remote font dependency.",
+  "scenarios": [
+    {
+      "scenario": "baseline",
+      "status": "passed",
+      "elapsed_seconds": 0.129354
+    },
+    {
+      "scenario": "changed",
+      "status": "passed",
+      "elapsed_seconds": 0.134126
+    }
+  ]
+}

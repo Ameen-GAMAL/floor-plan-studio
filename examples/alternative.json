@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "revision": 1,
+  "units": "mm",
+  "building_use": "small_office",
+  "project_name": "Three-office input sensitivity",
+  "location": null,
+  "floor": {
+    "width_mm": 21000,
+    "depth_mm": 10000,
+    "external_wall_mm": 200,
+    "internal_wall_mm": 100,
+    "source_status": "assumed",
+    "source_note": "Synthetic presentation brief; verify on site."
+  },
+  "fixed": {
+    "corridor": {
+      "x1": 200,
+      "y1": 4100,
+      "x2": 20800,
+      "y2": 5900
+    },
+    "core": {
+      "x1": 17500,
+      "y1": 200,
+      "x2": 20800,
+      "y2": 4000
+    },
+    "exterior_openings": [
+      {
+        "x1": 0,
+        "y1": 4550,
+        "x2": 200,
+        "y2": 5450,
+        "id": "entry_west"
+      },
+      {
+        "x1": 20800,
+        "y1": 4550,
+        "x2": 21000,
+        "y2": 5450,
+        "id": "opening_east"
+      }
+    ],
+    "other_obstructions": []
+  },
+  "rooms": [
+    {
+      "id": "reception",
+      "name": "Reception",
+      "kind": "reception",
+      "capacity": 1,
+      "min_area_m2": 16.0,
+      "target_area_m2": 19.0,
+      "max_area_m2": 45.0
+    },
+    {
+      "id": "workroom",
+      "name": "Shared workroom",
+      "kind": "workroom",
+      "capacity": 4,
+      "min_area_m2": 24.0,
+      "target_area_m2": 27.0,
+      "max_area_m2": 45.0
+    },
+    {
+      "id": "office_a",
+      "name": "Private office A",
+      "kind": "office",
+      "capacity": 1,
+      "min_area_m2": 16.0,
+      "target_area_m2": 19.0,
+      "max_area_m2": 45.0
+    },
+    {
+      "id": "office_b",
+      "name": "Private office B",
+      "kind": "office",
+      "capacity": 1,
+      "min_area_m2": 16.0,
+      "target_area_m2": 19.0,
+      "max_area_m2": 45.0
+    },
+    {
+      "id": "office_c",
+      "name": "Private office C",
+      "kind": "office",
+      "capacity": 1,
+      "min_area_m2": 16.0,
+      "target_area_m2": 22.0,
+      "max_area_m2": 45.0
+    },
+    {
+      "id": "meeting",
+      "name": "Meeting room",
+      "kind": "meeting",
+      "capacity": 6,
+      "min_area_m2": 18.0,
+      "target_area_m2": 21.0,
+      "max_area_m2": 28.0
+    }
+  ],
+  "relationships": [],
+  "priority": "balanced",
+  "rules": {
+    "grid_mm": 50,
+    "min_short_side_mm": 3200,
+    "max_aspect_ratio": 3.0,
+    "min_aperture_mm": 900,
+    "min_corridor_mm": 1800
+  },
+  "solver": {
+    "time_limit_seconds": 25.0,
+    "seed": 20261015
+  }
+}

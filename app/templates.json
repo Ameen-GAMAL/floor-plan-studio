@@ -1,0 +1,44 @@
+{
+  "source": "Prototype indicative footprints; PLAN.md section 7. Operational and accessible clearances are unverified.",
+  "templates": {
+    "office_1": {"width": 2000, "depth": 2100, "items": [
+      ["desk", "Work desk", 200, 100, 1400, 700],
+      ["chair", "Desk chair", 650, 850, 500, 500],
+      ["chair", "Visitor chair", 200, 1550, 500, 500]
+    ]},
+    "reception_1": {"width": 2400, "depth": 2100, "items": [
+      ["desk", "Reception desk", 200, 100, 1800, 700],
+      ["chair", "Reception chair", 800, 850, 500, 500],
+      ["seat", "Waiting seat", 200, 1550, 500, 500],
+      ["seat", "Waiting seat", 850, 1550, 500, 500]
+    ]},
+    "workroom_2": {"width": 2800, "depth": 1350, "items": [
+      ["desk", "Work desk", 100, 0, 1200, 600], ["chair", "Desk chair", 450, 700, 500, 500],
+      ["desk", "Work desk", 1500, 0, 1200, 600], ["chair", "Desk chair", 1850, 700, 500, 500]
+    ]},
+    "workroom_4": {"width": 2800, "depth": 2650, "items": [
+      ["desk", "Work desk", 100, 0, 1200, 600], ["chair", "Desk chair", 450, 700, 500, 500],
+      ["desk", "Work desk", 1500, 0, 1200, 600], ["chair", "Desk chair", 1850, 700, 500, 500],
+      ["desk", "Work desk", 100, 1400, 1200, 600], ["chair", "Desk chair", 450, 2100, 500, 500],
+      ["desk", "Work desk", 1500, 1400, 1200, 600], ["chair", "Desk chair", 1850, 2100, 500, 500]
+    ]},
+    "workroom_6": {"width": 4200, "depth": 2650, "items": [
+      ["desk", "Work desk", 100, 0, 1200, 600], ["chair", "Desk chair", 450, 700, 500, 500],
+      ["desk", "Work desk", 1500, 0, 1200, 600], ["chair", "Desk chair", 1850, 700, 500, 500],
+      ["desk", "Work desk", 2900, 0, 1200, 600], ["chair", "Desk chair", 3250, 700, 500, 500],
+      ["desk", "Work desk", 100, 1400, 1200, 600], ["chair", "Desk chair", 450, 2100, 500, 500],
+      ["desk", "Work desk", 1500, 1400, 1200, 600], ["chair", "Desk chair", 1850, 2100, 500, 500],
+      ["desk", "Work desk", 2900, 1400, 1200, 600], ["chair", "Desk chair", 3250, 2100, 500, 500]
+    ]},
+    "meeting_4": {"width": 2400, "depth": 2050, "items": [
+      ["table", "Meeting table", 300, 550, 1800, 900],
+      ["chair", "Meeting chair", 450, 0, 500, 500], ["chair", "Meeting chair", 1450, 0, 500, 500],
+      ["chair", "Meeting chair", 450, 1500, 500, 500], ["chair", "Meeting chair", 1450, 1500, 500, 500]
+    ]},
+    "meeting_6": {"width": 3000, "depth": 2050, "items": [
+      ["table", "Meeting table", 300, 550, 2400, 900],
+      ["chair", "Meeting chair", 350, 0, 500, 500], ["chair", "Meeting chair", 1250, 0, 500, 500], ["chair", "Meeting chair", 2150, 0, 500, 500],
+      ["chair", "Meeting chair", 350, 1500, 500, 500], ["chair", "Meeting chair", 1250, 1500, 500, 500], ["chair", "Meeting chair", 2150, 1500, 500, 500]
+    ]}
+  }
+}

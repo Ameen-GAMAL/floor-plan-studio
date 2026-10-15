@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#132238">
+  <title>Floor Plan Studio — Office planning with evidence</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232863eb'/%3E%3Cpath d='M8 8h16v16H8zM8 17h16M17 8v9M20 17v7' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Floor Plan Studio home"><span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 6h20v20H6zM6 17h20M17 6v11M20 17v9"/></svg></span><span>Floor Plan<span class="brand-sub">STUDIO</span></span></a>
+    <div class="workspace-label">YOUR WORKSPACE</div>
+    <nav aria-label="Workspace"><button class="nav-item active" data-action="view-brief" id="navBrief"><span class="nav-icon">01</span> Project brief <span class="nav-arrow">↗</span></button><button class="nav-item" data-action="view-result" id="navResult"><span class="nav-icon">02</span> Layout & evidence</button></nav>
+    <div class="workspace-label demo-label">DEMONSTRATION INPUTS</div>
+    <div class="demo-buttons"><button data-preset="baseline"><span class="demo-dot blue"></span>Small office<span>16 × 10 m</span></button><button data-preset="changed"><span class="demo-dot teal"></span>Larger meeting room<span>24 m² min.</span></button><button data-preset="impossible"><span class="demo-dot amber"></span>Area conflict<span>100 m² meeting</span></button><button data-preset="alternative"><span class="demo-dot lilac"></span>Three private offices<span>21 × 10 m</span></button></div>
+    <div class="sidebar-bottom"><div class="local-indicator"><i></i> Runs on this computer</div><p>A small office study.<br>Clear assumptions. Checkable results.</p><div class="sidebar-links"><a href="/plan" target="_blank" rel="noopener">Project plan ↗</a><a href="/guide" target="_blank" rel="noopener">Demo guide ↗</a></div></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong id="projectBreadcrumb">Small office study</strong></div><div class="topbar-right"><label class="mobile-examples"><span class="sr-only">Load a demonstration input</span><select data-control="demoPreset" aria-label="Load a demonstration input"><option value="">Demo inputs</option><option value="baseline">Small office · reset</option><option value="changed">24 m² meeting</option><option value="impossible">Area conflict</option><option value="alternative">Three offices</option></select></label><button class="button secondary small-button mobile-reset" data-preset="baseline" aria-label="Reset to the small office brief">Reset</button><span class="local-pill"><i></i> LOCAL APPLICATION</span><span class="avatar" aria-label="Office workspace">FP</span></div></header>
+    <main>
+      <section class="page-heading"><div><div class="eyebrow">OFFICE SPACE PLANNING</div><h1 id="pageTitle">A clear brief. A considered layout.</h1><p id="pageSubtitle">Define your space, generate a plan, and inspect the evidence behind it.</p></div><span id="revisionBadge" class="status-badge draft">Draft · revision 1</span></section>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      <section class="metrics" aria-label="Current brief summary"><div><span class="metric-label">OUTSIDE FLOOR AREA</span><strong id="grossMetric">160.00 <small>m²</small></strong><span class="metric-note">Includes walls and reserved space</span></div><div><span class="metric-label">WORKSTATIONS</span><strong id="staffMetric">7</strong><span class="metric-note">Shared + private + reception</span></div><div><span class="metric-label">MEETING CAPACITY</span><strong id="meetingMetric">6 <small>seats</small></strong><span class="metric-note">Not added to the staff total</span></div><div><span class="metric-label">DESIGN SCOPE</span><strong class="scope-metric">One office floor</strong><span class="metric-note">Two room banks · fixed circulation</span></div></section>
+      <section id="briefPane">
+        <div class="stepper" aria-label="Brief steps"><button data-step="0" class="step active"><span>1</span> Space & activities</button><div></div><button data-step="1" class="step"><span>2</span> Fixed geometry</button><div></div><button data-step="2" class="step"><span>3</span> Review & generate</button></div>
+        <div class="brief-grid"><section class="card form-card"><div id="stepContent"></div><div class="form-footer"><button id="backButton" class="button secondary" data-action="back">Back</button><span id="stepCounter">Step 1 of 3</span><button id="continueButton" class="button primary" data-action="next">Continue <span>→</span></button><button id="generateButton" class="button primary" data-action="generate" hidden>Generate floor plan <span>↗</span></button></div></section><aside class="brief-aside"><section class="card preview-card"><div class="section-eyebrow">YOUR STARTING GEOMETRY</div><div id="boundaryPreview"></div><div class="preview-legend"><span><i class="core-dot"></i> Fixed service reserve</span><span><i class="circulation-dot"></i> Fixed corridor</span></div><p id="geometrySummary" class="small muted"></p></section><section class="assumption-note"><span class="note-symbol">i</span><div><strong>A design study, with explicit limits</strong><p>Room dimensions, door topology and indicative furniture footprints are checked. Operational clearances, architectural usefulness and regulations require review.</p></div></section></aside></div>
+      </section>
+      <section id="resultPane" hidden>
+        <div class="result-toolbar"><div class="result-tabs" role="tablist" aria-label="Result views"><button role="tab" aria-selected="true" data-result-tab="plan">Floor plan</button><button role="tab" aria-selected="false" data-result-tab="schedule">Room schedule</button><button role="tab" aria-selected="false" data-result-tab="report">Validation report</button></div><div class="toolbar-actions"><button class="button secondary small-button" data-action="edit-brief">Edit brief</button><button class="button secondary small-button" id="downloadJson" data-action="download-json" disabled>JSON ↓</button><button class="button secondary small-button" id="downloadSvg" data-action="download-svg" disabled>SVG ↓</button></div></div>
+        <div class="quick-revision"><div><strong>Explore a requirement change</strong><span>All other mandatory bounds stay in place.</span></div><label for="quickMeeting">Meeting minimum <span class="input-suffix"><input id="quickMeeting" type="number" min="0.1" max="10000" step="0.1" aria-label="Meeting room minimum area"><span>m²</span></span></label><button class="button primary small-button" data-action="generate">Regenerate ↗</button></div>
+        <div id="resultBody"></div>
+      </section>
+      <footer class="page-footer"><span>FLOOR PLAN STUDIO <span class="footer-separator">/</span> Prototype design assumptions are visible in every report.</span><span>Geometry evidence ≠ construction approval</span></footer>
+    </main>
+  </div>
+</div>
+<noscript>This local application needs JavaScript enabled to complete the brief and show the exported plan.</noscript>
+</body>
+</html>
