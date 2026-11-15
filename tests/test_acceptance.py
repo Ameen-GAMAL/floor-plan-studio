@@ -11,6 +11,8 @@ from app.models import Brief, Layout, brief_hash
 from app.presets import preset
 from app.validator import validate
 
+EXAMPLES=Path(__file__).resolve().parents[1]/"examples"
+
 
 @pytest.fixture(scope="module")
 def client():
@@ -31,7 +33,7 @@ def statuses(report):
 
 @pytest.mark.parametrize("name,room_count",[("baseline",5),("changed",5),("alternative",6)])
 def test_real_input_scenarios(client,name,room_count):
-    brief=Brief.model_validate_json(Path("examples",name+".json").read_text(encoding="utf-8"))
+    brief=Brief.model_validate_json((EXAMPLES/f"{name}.json").read_text(encoding="utf-8"))
     response=client.post("/api/generate",json=brief.model_dump(mode="json"))
     assert response.status_code==200
     result=response.json()

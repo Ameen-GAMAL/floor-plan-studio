@@ -4,11 +4,13 @@ Constraint-based office floor plans with independently checked geometry.
 
 [![CI](https://github.com/Ameen-GAMAL/floor-plan-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/Ameen-GAMAL/floor-plan-studio/actions/workflows/ci.yml)
 
-A private feasibility prototype for one question: can a user review a structured office brief, generate a usable dimensioned layout, change a requirement, and receive either newly checked geometry or an honest conflict explanation?
+A local feasibility prototype for one question: can a user review a structured office brief, generate a usable dimensioned layout, change a requirement, and receive either newly checked geometry or an honest conflict explanation?
+
+[Narrated walkthrough](docs/media/floor-plan-walkthrough.mp4) · [Demo and evidence](docs/DEMO.md)
 
 ## Windows quick start: target under 5 minutes
 
-Start here if you can already view this private repository on GitHub but have not downloaded its files. Use your browser to get the code; Git installation is not required.
+Download the source of this public repository in your browser. A Git installation is optional.
 
 **Time estimate:** about 2–5 minutes with Python 3.12 already installed and a working internet connection. Installing Python or downloading dependencies on a slow connection can take longer.
 

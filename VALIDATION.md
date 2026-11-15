@@ -119,7 +119,7 @@ The frontend assets are local/data assets; there are no CDN, remote-font or exte
 
 ## Repository publication checks - 2026-10-15
 
-The source was prepared for the private Ameen-GAMAL/floor-plan-studio repository without changing the office-generation scope.
+The source was prepared for Ameen-GAMAL/floor-plan-studio without changing the office-generation scope.
 
 - Re-ran the full acceptance suite: **29 passed, one existing deprecation warning, in 27.38 seconds**.
 - Dependency consistency: **pip check passed**.

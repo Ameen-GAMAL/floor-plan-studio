@@ -1,5 +1,21 @@
 # Presenter guide
 
+[Watch the narrated walkthrough](media/floor-plan-walkthrough.mp4) · [Transcript](media/narration.json) · [Capture evidence](media/capture.json)
+
+The images came from the real browser and solver with synthetic inputs. The
+walkthrough shows a passing baseline, an invalidated export, a checked 24.13 m²
+meeting room, and an infeasible brief. The narration uses a system voice.
+
+To reproduce the recording on Windows, install `playwright-core@1.60.0` in an
+ignored local directory, add its `node_modules` folder to `NODE_PATH`, then run:
+
+```powershell
+node scripts/capture_demo.cjs .venv/Scripts/python.exe <Edge-or-Chromium-executable> work/capture
+./scripts/encode_demo.ps1 -CaptureDirectory work/capture -OutputFile docs/media/floor-plan-walkthrough.mp4
+```
+
+Encoding needs FFmpeg and the Windows speech component.
+
 ## Prepare
 
 1. Follow the root [README](../README.md) to install dependencies and start the app.
@@ -10,6 +26,12 @@
 Use the baseline first. The larger alternative input can use the entire 25-second solver budget.
 
 ## Main demonstration
+
+For a 60–90 second recording, show the synthetic baseline brief and generation
+first, then the independent validation report. Change the meeting minimum to
+24 m² and show the old export becoming stale. Regenerate and download the new
+export. Finish with the Area conflict preset and its reported larger-than-shell
+minimum. Use the recorded browser output from that session and label the commit.
 
 | Step | Action | Evidence to show |
 | --- | --- | --- |
@@ -39,6 +61,10 @@ The reference values above come from executed pinned-dependency Windows runs. Ge
 The engine uses constraint programming, not a generated image or a language model. The validator checks exported polygons separately. A valid returned plan satisfies the implemented geometry requirements for the selected family.
 
 An infeasible result is scoped to either the stated necessary contradiction or the encoded grid/layout family. An unresolved search does not prove infeasibility. Unsupported geometry is reported explicitly.
+
+An architectural review would need a qualified reviewer and a dated scope.
+Record comments separately for circulation, usability, and issues outside the
+encoded geometry checks. Share only the synthetic briefs and reviewed exports.
 
 The pass result does not certify actual office operation, accessibility, fire compliance, survey accuracy or building-system coordination. Those reviews remain visible as unverified and require a qualified architect.
 

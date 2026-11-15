@@ -1,0 +1,9 @@
+{
+  "input": "built-in synthetic briefs",
+  "captured_via": "real browser and local API",
+  "baseline": "passed",
+  "revision": 2,
+  "meeting_area_m2": 24.13,
+  "infeasible": "infeasible",
+  "blocked_export": true
+}

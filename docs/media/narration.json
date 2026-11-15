@@ -1,0 +1,8 @@
+{
+  "01-brief": "Floor Plan Studio turns a structured small-office brief into a dimensioned layout. This walkthrough uses the built-in synthetic office. Room minimums and maximums are hard requirements. Targets and zoning are preferences.",
+  "02-baseline": "Here is the baseline layout. The constraint solver placed rooms around a fixed corridor and service reserve. Select a room to see its measured dimensions, capacity, and indicative furniture.",
+  "03-validation": "The independent report checks the exported geometry. It records measurements, requirements, and the limits of what was verified. It also shows which reviews still need professional judgment.",
+  "04-stale": "Now the meeting room needs at least twenty-four square metres. Editing the brief makes the old result stale. Both downloads are disabled until the current revision passes validation.",
+  "05-revised": "Regeneration returns a new candidate. The revised meeting room meets the new minimum. The SVG and JSON exports now belong to the checked revision.",
+  "06-conflict": "The area-conflict example asks for more room area than fits inside the shell. The application explains the contradiction and keeps export disabled. This is a feasibility study for the encoded geometry. Real building approval needs qualified review."
+}

@@ -3,6 +3,7 @@
 This does not change the computer's network settings. Static frontend assets
 are audited separately; this is not a claim of OS-level network isolation.
 """
+import argparse
 import json
 import os
 import socket
@@ -41,7 +42,7 @@ def serve():
     uvicorn.run("app.main:app",host="127.0.0.1",port=8002,log_level="warning")
 
 
-def check():
+def check(report_path):
     work=ROOT/"work"
     work.mkdir(exist_ok=True)
     logpath=work/"offline-server.log"
@@ -77,7 +78,8 @@ def check():
             evidence=dict(status="passed",fresh_server=True,external_tcp_blocked_in_server=True,os_network_settings_changed=False,
                           frontend_asset_audit="All scripts, stylesheet and favicon are local/data assets; no CDN or remote font dependency.",
                           scenarios=results)
-            (ROOT/"outputs"/"offline-check.json").write_text(json.dumps(evidence,indent=2),encoding="utf-8")
+            report_path.parent.mkdir(parents=True,exist_ok=True)
+            report_path.write_text(json.dumps(evidence,indent=2)+"\n",encoding="utf-8")
             print(json.dumps(evidence,indent=2))
         finally:
             process.terminate()
@@ -89,4 +91,8 @@ def check():
 
 
 if __name__=="__main__":
-    serve() if "--serve" in sys.argv else check()
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--serve",action="store_true",help=argparse.SUPPRESS)
+    parser.add_argument("--report",type=Path,default=ROOT/"outputs"/"offline-check.json")
+    args=parser.parse_args()
+    serve() if args.serve else check(args.report)
